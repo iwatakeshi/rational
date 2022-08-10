@@ -218,18 +218,21 @@ class Rational(val numerator: Int, val denominator: Int):
 
   /**
    * Converts a rational number to a double.
+   *
    * @return A double value.
    */
   def toDouble: Double = numerator.toDouble / denominator.toDouble
 
   /**
    * Converts a rational number to a tuple.
+   * 
    * @return A tuple value.
    */
   def toTuple: (Int, Int) = (numerator, denominator)
 
   /**
    * Flips the numerator with the denominator.
+   *
    * @return A rational number.
    */
   def flip: Rational = new Rational(denominator, numerator)
@@ -246,6 +249,7 @@ class Rational(val numerator: Int, val denominator: Int):
 
   /**
    * Computes and returns the greatest common denominator.
+   * 
    * @return An integer value.
    */
   def gcd: Int = this.gcd(numerator, denominator)
