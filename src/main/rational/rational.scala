@@ -1,5 +1,5 @@
 package rational
-import scala.annotation.targetName
+import scala.annotation.{tailrec, targetName}
 
 object Extensions {
   extension (a: Int) {
@@ -215,6 +215,28 @@ class Rational(val numerator: Int, val denominator: Int):
   @targetName("not_equal_double")
   def != (that: Double): Boolean =
     this.toDouble != that
+
+  /**
+   * Compares two rational numbers and returns
+   * a rational number with the minimum value
+   *
+   * @param that The other rational number.
+   * @return A rational number.
+   */
+  @targetName("min")
+  def min(that: Rational) : Rational =
+    if this < that then this else that
+
+  /**
+   * Compares two rational numbers and returns
+   * a rational number with the maximum value
+   *
+   * @param that The other rational number.
+   * @return A rational number.
+   */
+  @targetName("max")
+  def max(that: Rational): Rational =
+    if this > that then this else that
 
   /**
    * Converts a rational number to a double.

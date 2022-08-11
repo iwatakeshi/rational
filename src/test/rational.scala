@@ -1,18 +1,22 @@
 import org.scalatest.funspec.AnyFunSpec
-import rational.{Rational}
+import rational.Rational
 import rational.Extensions.*
 
 class RationalSpec extends AnyFunSpec {
   describe("Rational") {
     describe("Extensions") {
       describe("Int.toRational") {
-        val a = 1.toRational
-        assert(a.numerator == 1 && a.denominator == 1)
+        it("should convert an integer to a rational number") {
+          val a = 1.toRational
+          assert(a.numerator == 1 && a.denominator == 1)
+        }
       }
 
       describe("(Int, Int).toRational") {
-        val a = (1, 2).toRational
-        assert(a.numerator == 1 && a.denominator == 1)
+       it("should convert a tuple to a rational number") {
+         val a = (1, 2).toRational
+         assert(a.numerator == 1 && a.denominator == 2)
+       }
       }
     }
 
@@ -167,6 +171,22 @@ class RationalSpec extends AnyFunSpec {
       it("should compare a rational number and a double") {
         val a = new Rational(1, 2)
         assert((a != 0.5) == false)
+      }
+    }
+
+    describe("min") {
+      it("should return the minimum rational number") {
+        val a = new Rational(1, 2)
+        val b = new Rational(1)
+        assert(a.min(b) == a)
+      }
+    }
+
+    describe("max") {
+      it("should return the minimum rational number") {
+        val a = new Rational(1, 2)
+        val b = new Rational(1)
+        assert(a.max(b) == b)
       }
     }
   }
