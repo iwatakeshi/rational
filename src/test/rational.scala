@@ -20,6 +20,12 @@ class RationalSpec extends AnyFunSpec {
       }
     }
 
+    describe("toInt") {
+      it("should convert a rational number to an integer") {
+        assert((new Rational(1) + 5).toInt == 6)
+      }
+    }
+
     describe("toDouble") {
       it("should convert a rational number to double") {
         assert(new Rational(1, 2).toDouble == 0.5)
