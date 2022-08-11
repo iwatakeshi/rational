@@ -28,6 +28,7 @@ class Rational(val numerator: Int, val denominator: Int):
    * @param b The second number.
    * @return The greatest common denominator.
    */
+  @tailrec
   private def gcd(a: Int, b: Int): Int =
     if b <= 0 then a else gcd(b, a % b)
 
