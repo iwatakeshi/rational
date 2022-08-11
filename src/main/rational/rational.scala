@@ -34,154 +34,154 @@ class Rational(val numerator: Int, val denominator: Int):
   /**
    * Adds two rational numbers.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A rational number.
    */
   @targetName("add")
-  def +(other: Rational): Rational =
-    val denominator = this.denominator * other.denominator
-    val numerator = (this.numerator * other.denominator) + (other.numerator * this.denominator)
+  def +(that: Rational): Rational =
+    val denominator = this.denominator * that.denominator
+    val numerator = (this.numerator * that.denominator) + (that.numerator * this.denominator)
     new Rational(numerator, denominator)
 
   /**
    * Subtracts two rational numbers.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A rational number.
    */
   @targetName("subtract")
-  def - (other: Rational): Rational =
-    val denominator = this.denominator * other.denominator
-    val numerator = (this.numerator * other.denominator) - (other.numerator * this.denominator)
+  def - (that: Rational): Rational =
+    val denominator = this.denominator * that.denominator
+    val numerator = (this.numerator * that.denominator) - (that.numerator * this.denominator)
     new Rational(numerator, denominator)
 
   /**
    * Divides two rational numbers.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A rational number
    */
   @targetName("divide")
-  def / (other: Rational): Rational =
-    val numerator = this.numerator * other.flip.numerator
-    val denominator = this.denominator * other.flip.denominator
+  def / (that: Rational): Rational =
+    val numerator = this.numerator * that.flip.numerator
+    val denominator = this.denominator * that.flip.denominator
 
     new Rational(numerator, denominator)
 
   /**
    * Multiplies two rational numbers.
    *
-   * @param other The other rational number
+   * @param that The other rational number
    * @return A rational number.
    */
   @targetName("multiply")
-  def * (other: Rational): Rational =
-    val numerator = this.numerator * other.numerator
-    val denominator = this.denominator * other.denominator
+  def * (that: Rational): Rational =
+    val numerator = this.numerator * that.numerator
+    val denominator = this.denominator * that.denominator
     new Rational(numerator, denominator)
 
   /**
    * Compares two rational numbers and determines
    * whether the left hand side is less than the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("less_than_rational")
-  def <(other: Rational): Boolean =
-    this.toDouble < other.toDouble
+  def <(that: Rational): Boolean =
+    this.toDouble < that.toDouble
 
   /**
    * Compares a rational number and a double and determines
    * whether the left hand side is less than the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("less_than_double")
-  def <(other: Double): Boolean =
-    this.toDouble < other
+  def <(that: Double): Boolean =
+    this.toDouble < that
 
   /**
    * Compares two rational numbers and determines
    * whether the left hand side is greater than the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("greater_than_rational")
-  def >(other: Rational): Boolean =
-    this.toDouble > other.toDouble
+  def >(that: Rational): Boolean =
+    this.toDouble > that.toDouble
 
   /**
    * Compares a rational number and a double and determines
    * whether the left hand side is greater than the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("greater_than_double")
-  def >(other: Double): Boolean =
-    this.toDouble > other
+  def >(that: Double): Boolean =
+    this.toDouble > that
 
   /**
    * Compares two rational numbers and determines
    * whether the left hand side is less than or equal
    * to the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("less_than_equal_rational")
-  def <= (other: Rational): Boolean =
-    this.toDouble <= other.toDouble
+  def <= (that: Rational): Boolean =
+    this.toDouble <= that.toDouble
 
   /**
    * Compares a rational number and a double and determines
    * whether the left hand side is less than or equal
    * to the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("less_than_equal_double")
-  def <= (other: Double): Boolean =
-    this.toDouble <= other
+  def <= (that: Double): Boolean =
+    this.toDouble <= that
 
   /**
    * Compares two rational numbers and determines
    * whether the left hand side is greater than or equal
    * to the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("greater_than_equal_rational")
-  def >= (other: Rational): Boolean =
-    this.toDouble >= other.toDouble
+  def >= (that: Rational): Boolean =
+    this.toDouble >= that.toDouble
 
   /**
    * Compares a rational number and a double and determines
    * whether the left hand side is less than or equal
    * to the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("greater_than_equal_double")
-  def >= (other: Double): Boolean =
-    this.toDouble >= other
+  def >= (that: Double): Boolean =
+    this.toDouble >= that
 
   /**
    * Compares two rational numbers and determines
    * whether the left hand side is equal to the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("equal_rational")
-  def == (other: Rational): Boolean =
-    this.toDouble == other.toDouble
+  def == (that: Rational): Boolean =
+    this.toDouble == that.toDouble
 
   /**
    * Compares a rational number and a double and determines
@@ -198,23 +198,23 @@ class Rational(val numerator: Int, val denominator: Int):
    * Compares two rational numbers and determines
    * whether the left hand side is not equal to the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("not_equal_rational")
-  def != (other: Rational): Boolean =
-    this.toDouble != other.toDouble
+  def != (that: Rational): Boolean =
+    this.toDouble != that.toDouble
 
   /**
    * Compares a rational number and a double and determines
    * whether the left hand side is not equal to the right hand side.
    *
-   * @param other The other rational number.
+   * @param that The other rational number.
    * @return A boolean value.
    */
   @targetName("not_equal_double")
-  def != (other: Double): Boolean =
-    this.toDouble != other
+  def != (that: Double): Boolean =
+    this.toDouble != that
 
   /**
    * Converts a rational number to a double.
