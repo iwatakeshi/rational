@@ -17,7 +17,7 @@ object Extensions {
  * @param numerator The numerator of a rational number.
  * @param denominator The denominator of a rational number.
  */
-class Rational(val numerator: Int, val denominator: Int):
+class Rational(val numerator: Int, val denominator: Int) extends Ordered[Rational]:
   require(denominator != 0, "The denominator cannot be zero.")
   def this(numerator: Int) = this(numerator, 1)
 
@@ -122,8 +122,7 @@ class Rational(val numerator: Int, val denominator: Int):
    * @param that The other rational number.
    * @return A boolean value.
    */
-  @targetName("less_than_rational")
-  def <(that: Rational): Boolean =
+  override def <(that: Rational): Boolean =
     this.toDouble < that.toDouble
 
   /**
@@ -144,8 +143,7 @@ class Rational(val numerator: Int, val denominator: Int):
    * @param that The other rational number.
    * @return A boolean value.
    */
-  @targetName("greater_than_rational")
-  def >(that: Rational): Boolean =
+  override def >(that: Rational): Boolean =
     this.toDouble > that.toDouble
 
   /**
@@ -167,8 +165,7 @@ class Rational(val numerator: Int, val denominator: Int):
    * @param that The other rational number.
    * @return A boolean value.
    */
-  @targetName("less_than_equal_rational")
-  def <= (that: Rational): Boolean =
+  override def <= (that: Rational): Boolean =
     this.toDouble <= that.toDouble
 
   /**
@@ -191,8 +188,7 @@ class Rational(val numerator: Int, val denominator: Int):
    * @param that The other rational number.
    * @return A boolean value.
    */
-  @targetName("greater_than_equal_rational")
-  def >= (that: Rational): Boolean =
+  override def >= (that: Rational): Boolean =
     this.toDouble >= that.toDouble
 
   /**
@@ -314,6 +310,8 @@ class Rational(val numerator: Int, val denominator: Int):
   def gcd: Int = this.gcd(numerator, denominator)
 
   override def toString: String = s"$numerator/$denominator"
+
+  override def compare(that: Rational): Int = (this.numerator * that.denominator) - (that.numerator * this.denominator)
 
 object Rational {
   def fromTuple(tuple: (Int, Int)) = new Rational(tuple._1, tuple._2)
